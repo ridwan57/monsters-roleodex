@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SearchBox from './components/search-box/search-box.component';
 import { CardList } from './components/card-list/card-list.component';
 class App extends React.Component {
   constructor() {
@@ -255,12 +256,21 @@ class App extends React.Component {
     return (
       <div className="App">
 
-        <input type='search' placeholder="search monsters" onChange={e => {
+        {/* <input type='search'  onChange={e => {
 
           this.setState({ searchField: e.target.value });
 
 
-        }} />
+        }} /> */}
+
+        <SearchBox
+          placeholder="search monsters"
+          handleChange={e => {
+            this.setState({ searchField: e.target.value });
+
+          }
+          }
+        />
         <br /><br /><br /><br /><br />
 
         <CardList monsters={filteredMonsters} />
